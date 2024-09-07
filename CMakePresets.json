@@ -2,7 +2,7 @@
   "version": 6,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 21,
+    "minor": 30,
     "patch": 0
   },
   "configurePresets": [
@@ -42,20 +42,6 @@
       }
     },
     {
-      "name": "buildtype-relwithdebinfo",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
-    },
-    {
-      "name": "buildtype-minsizerel",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "MinSizeRel"
-      }
-    },
-    {
       "name": "packaging-vcpkg",
       "hidden": true,
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
@@ -89,37 +75,11 @@
       "generator": "Ninja"
     },
     {
-      "name": "compiler-clang",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_C_COMPILER": "clang",
-        "CMAKE_CXX_COMPILER": "clang++"
-      },
-      "environment": {
-        "PROJECT_COMPILER": "clang",
-        "PROJECT_COMPILER_FLAGS": "-Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -D__cpp_lib_char8_t -D__cpp_consteval -D__cpp_lib_format"
-      }
-    },
-    {
       "name": "compiler-msvc",
       "hidden": true,
       "environment": {
         "PROJECT_COMPILER_FLAGS": "/permissive- /Zc:preprocessor /EHsc /MP /W4 /WX /external:anglebrackets /external:W0 /bigobj",
         "PROJECT_COMPILER": "msvc"
-      }
-    },
-    {
-      "name": "compiler-clang-cl",
-      "hidden": true,
-      "inherits": "compiler-clang",
-      "cacheVariables": {
-        "CMAKE_C_COMPILER": "clang-cl",
-        "CMAKE_CXX_COMPILER": "clang-cl"
-      },
-      "environment": {
-        "CC": "clang-cl",
-        "CXX": "clang-cl",
-        "PROJECT_COMPILER_FLAGS": "/permissive- /EHsc /W4 /WX -Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -D__cpp_lib_char8_t -D__cpp_consteval -D__cpp_lib_format"
       }
     },
     {
@@ -156,38 +116,14 @@
       "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-all"
     },
     {
-      "name": "build-debug-clang-cl-vcpkg-all",
-      "inherits": [
-        "buildtype-debug",
-        "architecture-x64",
-        "platform-win32-unicode",
-        "generator-ninja",
-        "compiler-clang-cl",
-        "packaging-vcpkg",
-        "runtimes-all",
-        "common"
-      ],
-      "binaryDir": "${sourceDir}/build/debug-clang-cl-vcpkg-all"
-    },
-    {
       "name": "build-debug-msvc-vcpkg-flatrim",
       "inherits": ["build-debug-msvc-vcpkg-all", "runtimes-flatrim"],
       "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-flatrim"
     },
     {
-      "name": "build-debug-clang-cl-vcpkg-flatrim",
-      "inherits": ["build-debug-clang-cl-vcpkg-all", "runtimes-flatrim"],
-      "binaryDir": "${sourceDir}/build/debug-clang-cl-vcpkg-flatrim"
-    },
-    {
       "name": "build-debug-msvc-vcpkg-vr",
       "inherits": ["build-debug-msvc-vcpkg-all", "runtimes-vr"],
       "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-vr"
-    },
-    {
-      "name": "build-debug-clang-cl-vcpkg-vr",
-      "inherits": ["build-debug-clang-cl-vcpkg-all", "runtimes-vr"],
-      "binaryDir": "${sourceDir}/build/debug-clang-cl-vcpkg-vr"
     },
     {
       "name": "build-release-msvc-vcpkg-all",
@@ -204,38 +140,14 @@
       "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-all"
     },
     {
-      "name": "build-release-clang-cl-vcpkg-all",
-      "inherits": [
-        "buildtype-release",
-        "architecture-x64",
-        "platform-win32-unicode",
-        "generator-ninja",
-        "compiler-clang-cl",
-        "packaging-vcpkg",
-        "runtimes-all",
-        "common"
-      ],
-      "binaryDir": "${sourceDir}/build/release-clang-cl-vcpkg-all"
-    },
-    {
       "name": "build-release-msvc-vcpkg-flatrim",
       "inherits": ["build-release-msvc-vcpkg-all", "runtimes-flatrim"],
       "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-flatrim"
     },
     {
-      "name": "build-release-clang-cl-vcpkg-flatrim",
-      "inherits": ["build-release-clang-cl-vcpkg-all", "runtimes-flatrim"],
-      "binaryDir": "${sourceDir}/build/release-clang-cl-vcpkg-flatrim"
-    },
-    {
       "name": "build-release-msvc-vcpkg-vr",
       "inherits": ["build-release-msvc-vcpkg-all", "runtimes-vr"],
       "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-vr"
-    },
-    {
-      "name": "build-release-clang-cl-vcpkg-vr",
-      "inherits": ["build-release-clang-cl-vcpkg-all", "runtimes-vr"],
-      "binaryDir": "${sourceDir}/build/release-clang-cl-vcpkg-vr"
     }
   ],
   "buildPresets": [
@@ -245,19 +157,9 @@
       "configurePreset": "build-debug-msvc-vcpkg-all"
     },
     {
-      "name": "debug-clang-cl-vcpkg-all",
-      "displayName": "Debug (All, Clang-CL, Vcpkg)",
-      "configurePreset": "build-debug-clang-cl-vcpkg-all"
-    },
-    {
       "name": "debug-msvc-vcpkg-vr",
       "displayName": "Debug (VR, MSVC, Vcpkg)",
       "configurePreset": "build-debug-msvc-vcpkg-vr"
-    },
-    {
-      "name": "debug-clang-cl-vcpkg-vr",
-      "displayName": "Debug (VR, Clang-CL, Vcpkg)",
-      "configurePreset": "build-debug-clang-cl-vcpkg-vr"
     },
     {
       "name": "debug-msvc-vcpkg-flatrim",
@@ -265,19 +167,9 @@
       "configurePreset": "build-debug-msvc-vcpkg-flatrim"
     },
     {
-      "name": "debug-clang-cl-vcpkg-flatrim",
-      "displayName": "Debug (Flatrim, Clang-CL, Vcpkg)",
-      "configurePreset": "build-debug-clang-cl-vcpkg-flatrim"
-    },
-    {
       "name": "release-msvc-vcpkg-all",
       "displayName": "Release (All, MSVC, Vcpkg)",
       "configurePreset": "build-release-msvc-vcpkg-all"
-    },
-    {
-      "name": "release-clang-cl-vcpkg-all",
-      "displayName": "Release (All, Clang-CL, Vcpkg)",
-      "configurePreset": "build-release-clang-cl-vcpkg-all"
     },
     {
       "name": "release-msvc-vcpkg-vr",
@@ -285,19 +177,9 @@
       "configurePreset": "build-release-msvc-vcpkg-vr"
     },
     {
-      "name": "release-clang-cl-vcpkg-vr",
-      "displayName": "Release (VR, Clang-CL, Vcpkg)",
-      "configurePreset": "build-release-clang-cl-vcpkg-vr"
-    },
-    {
       "name": "release-msvc-vcpkg-flatrim",
       "displayName": "Release (Flatrim, MSVC, Vcpkg)",
       "configurePreset": "build-release-msvc-vcpkg-flatrim"
-    },
-    {
-      "name": "release-clang-cl-vcpkg-flatrim",
-      "displayName": "Release (Flatrim, Clang-CL, Vcpkg)",
-      "configurePreset": "build-release-clang-cl-vcpkg-flatrim"
     }
   ]
 }
