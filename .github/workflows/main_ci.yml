@@ -1,16 +1,6 @@
 name: Main CI
 
 on:
-  push:
-    branches: main
-    paths:
-      - ".github/workflows/main_ci.yml"
-      - "cmake/**"
-      - "include/**"
-      - "src/**"
-      - "CMakeLists.txt"
-      - "CMakePresets.json"
-      - "vcpkg.json"
   pull_request:
     types: [opened, synchronize, ready_for_review]
     paths:
@@ -40,9 +30,6 @@ jobs:
           - all
           - flatrim
           - vr
-        compiler:
-          - msvc
-          - clang-cl
 
     steps:
       - name: Checkout
@@ -60,5 +47,5 @@ jobs:
         uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
-          configurePreset: build-${{ matrix.build-type }}-${{ matrix.compiler }}-vcpkg-${{ matrix.runtime }}
-          buildPreset: ${{ matrix.build-type }}-${{ matrix.compiler }}-vcpkg-${{ matrix.runtime }}
+          configurePreset: build-${{ matrix.build-type }}-msvc-vcpkg-${{ matrix.runtime }}
+          buildPreset: ${{ matrix.build-type }}-msvc-vcpkg-${{ matrix.runtime }}
