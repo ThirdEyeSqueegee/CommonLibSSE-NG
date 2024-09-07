@@ -13,6 +13,10 @@ on:
       - "vcpkg.json"
   workflow_dispatch:
 
+concurrency:
+  group: main-ci
+  cancel-in-progress: true
+
 env:
   VCPKG_COMMIT_ID: 68d349964cb4e8da561fd849d9491e6ba11c5681
 

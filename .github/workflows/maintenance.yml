@@ -5,6 +5,10 @@ on:
     branches: main
   workflow_dispatch:
 
+concurrency:
+  group: maintenance
+  cancel-in-progress: true
+
 jobs:
   maintenance:
     runs-on: ubuntu-latest
