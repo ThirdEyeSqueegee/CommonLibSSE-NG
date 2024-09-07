@@ -4,13 +4,11 @@ option(SKSE_SUPPORT_XBYAK "Enables trampoline support for Xbyak." OFF)
 option(ENABLE_SKYRIM_SE "Enable support for Skyrim SE in the dynamic runtime feature." ON)
 option(ENABLE_SKYRIM_AE "Enable support for Skyrim AE in the dynamic runtime feature." ON)
 option(ENABLE_SKYRIM_VR "Enable support for Skyrim VR in the dynamic runtime feature." ON)
-option(BUILD_TESTS "Enable building of the unit tests." ON)
 message("Options:")
 message("\tEnable Xbyak: ${SKSE_SUPPORT_XBYAK}")
 message("\tEnable Skyrim SE: ${ENABLE_SKYRIM_SE}")
 message("\tEnable Skyrim AE: ${ENABLE_SKYRIM_AE}")
 message("\tEnable Skyrim VR: ${ENABLE_SKYRIM_VR}")
-message("\tBuild Tests: ${BUILD_TESTS}")
 
 if(NOT ENABLE_SKYRIM_SE AND NOT ENABLE_SKYRIM_AE AND NOT ENABLE_SKYRIM_VR)
 	message(FATAL_ERROR "At least one Skyrim runtime must be supported by the CommonLibSSE build.")
@@ -36,8 +34,7 @@ find_path(RAPIDCSV_INCLUDE_DIRS "rapidcsv.h")
 find_package(directxtk CONFIG REQUIRED)
 find_package(OpenVR REQUIRED)
 
-include(cmake/sourcelist.cmake)
-include(cmake/testlist.cmake)
+file(GLOB_RECURSE SOURCES include/**/*.h src/**/*.cpp)
 
 source_group(
 	TREE "${CMAKE_CURRENT_SOURCE_DIR}"
@@ -181,58 +178,3 @@ install(
 	"include/SKSE"
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )
-
-if(BUILD_TESTS)
-	find_package(Catch2 CONFIG REQUIRED)
-	include(CTest)
-	include(Catch)
-
-	add_executable(
-		"${PROJECT_NAME}Tests"
-		${TESTS}
-	)
-
-	target_include_directories(
-		"${PROJECT_NAME}Tests"
-		PUBLIC
-		"$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-		"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
-	)
-
-	target_include_directories(
-		"${PROJECT_NAME}Tests"
-		PRIVATE
-		${Catch2_INCLUDE_DIRS}
-		${spdlog_INCLUDE_DIRS}
-		${RAPIDCSV_INCLUDE_DIRS}
-	)
-
-	target_compile_definitions(
-		"${PROJECT_NAME}Tests"
-		PUBLIC
-		ENABLE_COMMONLIBSSE_TESTING=1
-	)
-
-	target_link_libraries(
-		"${PROJECT_NAME}Tests"
-		PRIVATE
-		${PROJECT_NAME}
-		Catch2::Catch2
-	)
-
-	target_precompile_headers(
-		"${PROJECT_NAME}Tests"
-		PRIVATE
-		include/SKSE/Impl/PCH.h
-	)
-
-	file(COPY
-		tests/REL/version-1-4-15-0.csv
-		tests/REL/version-1-5-97-0.bin
-		tests/REL/versionlib-1-6-353-0.bin
-		DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Data/SKSE/Plugins/"
-	)
-
-	catch_discover_tests("${PROJECT_NAME}Tests")
-	add_test(NAME "${PROJECT_NAME}Tests" COMMAND "${PROJECT_NAME}Tests")
-endif()

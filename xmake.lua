@@ -15,15 +15,18 @@ set_encodings("utf-8")
 add_rules("mode.debug", "mode.release")
 
 -- define options
-option("skyrim_se")
+option("skyrim_all")
     set_default(true)
-    set_description("Enable runtime support for Skyrim SE")
+    set_description("Enable runtime support for Skyrim SE, AE, and VR")
     add_defines("ENABLE_SKYRIM_SE=1")
+    add_defines("ENABLE_SKYRIM_AE=1")
+    add_defines("ENABLE_SKYRIM_VR=1")
 option_end()
 
-option("skyrim_ae")
+option("skyrim_flatrim")
     set_default(true)
-    set_description("Enable runtime support for Skyrim AE")
+    set_description("Enable runtime support for Skyrim SE and AE")
+    add_defines("ENABLE_SKYRIM_SE=1")
     add_defines("ENABLE_SKYRIM_AE=1")
 option_end()
 
@@ -39,18 +42,9 @@ option("skse_xbyak")
     add_defines("SKSE_SUPPORT_XBYAK=1")
 option_end()
 
-option("tests")
-    set_default(false)
-    set_description("Enable building unit tests")
-    add_defines("ENABLE_COMMONLIBSSE_TESTING=1")
-option_end()
-
 -- require packages
-add_requires("directxmath", "directxtk", "spdlog", { configs = { header_only = false, wchar = true, std_format = true } })
-
-if has_config("skyrim_vr") then
-    add_requires("rapidcsv")
-end
+add_requires("directxtk", "spdlog", { configs = { header_only = false, wchar = true, std_format = true } })
+add_requires("rapidcsv")
 
 if has_config("skse_xbyak") then
     add_requires("xbyak")
@@ -62,18 +56,15 @@ target("commonlibsse-ng")
     set_kind("static")
 
     -- add packages
-    add_packages("directxmath", "directxtk", "spdlog", { public = true })
-
-    if has_config("skyrim_vr") then
-        add_packages("rapidcsv", { public = true })
-    end
+    add_packages("directxtk", "spdlog", { public = true })
+    add_packages("rapidcsv", { public = true })
 
     if has_config("skse_xbyak") then
         add_packages("xbyak", { public = true })
     end
 
     -- add options
-    add_options("skyrim_se", "skyrim_ae", "skyrim_vr", "skse_xbyak", "tests", { public = true })
+    add_options("skyrim_all", "skyrim_flatrim", "skyrim_vr", "skse_xbyak", { public = true })
 
     -- add system links
     add_syslinks("advapi32", "d3d11", "d3dcompiler", "dbghelp", "dxgi", "ole32", "shell32", "user32", "version")
@@ -153,35 +144,3 @@ target("commonlibsse-ng")
         "clang_cl::-Wno-reinterpret-base-class"
     )
 target_end()
-
-if has_config("tests") then
-    add_requires("catch2")
-
-    target("commonlibsse-ng-tests")
-        -- set target kind
-        set_kind("binary")
-
-        -- add dependencies
-        add_deps("commonlibsse-ng")
-
-        -- add packages
-        add_packages("catch2")
-
-        -- add source files
-        add_files("tests/**.cpp")
-
-        -- set precompiled header
-        set_pcxxheader("include/SKSE/Impl/PCH.h")
-
-        -- add flags (cl: disable warnings)
-        add_cxxflags("cl::/wd4200") -- nonstandard extension used : zero-sized array in struct/union
-
-        -- copy runtime files to run directory
-        before_run(function(target)
-            local plugins = path.join(path.absolute(target:targetdir()), "Data/SKSE/Plugins")
-            os.mkdir(plugins)
-            os.cp("$(scriptdir)/tests/REL/*.csv", plugins)
-            os.cp("$(scriptdir)/tests/REL/*.bin", plugins)
-        end)
-    target_end()
-end
