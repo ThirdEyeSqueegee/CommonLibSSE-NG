@@ -7,18 +7,16 @@
   "license": "MIT",
   "supports": "windows & x64",
   "builtin-baseline": "68d349964cb4e8da561fd849d9491e6ba11c5681",
-  "dependencies": ["fmt", "directxtk", "rapidcsv", "spdlog", "openvr"],
-  "overrides": [
-    {
-      "name": "fmt",
-      "version": "10.2.1"
-    },
-    {
-      "name": "openvr",
-      "version": "1.0.10"
-    }
-  ],
+  "dependencies": ["directxtk", "rapidcsv", "spdlog", "openvr"],
   "vcpkg-configuration": {
+    "registries": [
+      {
+        "kind": "git",
+        "repository": "https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg",
+        "baseline": "b067d5b7defc84442fb204619e29472ba8ef64aa",
+        "packages": ["spdlog"]
+      }
+    ],
     "overlay-ports": ["./ports"]
   }
 }
