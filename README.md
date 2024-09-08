@@ -23,7 +23,7 @@ Add the following to `vcpkg.json`:
 }
 ```
 
-## Differences from [upstream](https://github.com/alandtse/CommonLibVR/tree/ng)
+## [Differences from upstream](https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG/compare/ng...main)
 
 - Only `all` (SE, AE, VR -- default) and `flatrim` (SE, AE) presets
 - Less cruft (no Conan, no Xmake, no tests, no `clang-cl` support)
