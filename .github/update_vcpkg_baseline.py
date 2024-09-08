@@ -19,13 +19,13 @@ clib_vcpkg_registry_ref = (
     .split()[0]
 )
 
-with open("../vcpkg.json", "r") as f:
+with open("../../vcpkg.json", "r") as f:
     vcpkg_json = load(f)
 
 vcpkg_json["builtin-baseline"] = vcpkg_ref
 vcpkg_json["vcpkg-configuration"]["registries"][0]["baseline"] = clib_vcpkg_registry_ref
 
-with open("../vcpkg.json", "w") as f:
+with open("../../vcpkg.json", "w") as f:
     dump(vcpkg_json, f, indent=2)
 
 with open("./workflows/main_ci.yml", "r") as f:
