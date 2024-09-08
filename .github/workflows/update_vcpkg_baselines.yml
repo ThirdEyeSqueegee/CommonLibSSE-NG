@@ -1,4 +1,4 @@
-name: Update vcpkg baseline
+name: Update vcpkg baselines
 
 on:
   schedule:
@@ -8,11 +8,11 @@ on:
 permissions: write-all
 
 concurrency:
-  group: update-vcpkg-baseline
+  group: update-vcpkg-baselines
   cancel-in-progress: true
 
 jobs:
-  update-vcpkg-baseline:
+  update-vcpkg-baselines:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: 3.12
 
-      - run: python .github/update_vcpkg_baseline.py
+      - run: python .github/update_vcpkg_baselines.py
 
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9
