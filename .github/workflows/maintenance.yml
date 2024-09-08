@@ -3,6 +3,9 @@ name: Maintenance
 on:
   push:
     branches: main
+    paths:
+      - "include/**"
+      - "src/**"
   workflow_dispatch:
 
 concurrency:
