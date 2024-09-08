@@ -16,7 +16,7 @@
       {
         "kind": "git",
         "repository": "https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg",
-        "baseline": "70316cfbe0780b062d096d71e29749da851937e3",
+        "baseline": "716501b18daf3ff6a5dd29bc7dbd632a7a12e8b9",
         "packages": [
           "spdlog"
         ]
