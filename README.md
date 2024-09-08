@@ -19,7 +19,13 @@ Add the following to your project's `vcpkg.json`:
       "kind": "git",
       "repository": "https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg",
       "baseline": "<hash of the latest commit in the above repo>",
-      "packages": ["commonlibsse-ng", "spdlog"]
+      "packages": ["commonlibsse-ng"]
+    },
+    {
+      "kind": "git",
+      "repository": "https://github.com/ThirdEyeSqueegee/vcpkg-ports",
+      "baseline": "<hash of the latest commit in the above repo>",
+      "packages": ["spdlog"]
     }
   ],
 }
