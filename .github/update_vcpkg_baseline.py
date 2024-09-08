@@ -19,21 +19,21 @@ clib_vcpkg_registry_ref = (
     .split()[0]
 )
 
-with open("../../vcpkg.json", "r") as f:
+with open("./vcpkg.json", "r") as f:
     vcpkg_json = load(f)
 
 vcpkg_json["builtin-baseline"] = vcpkg_ref
 vcpkg_json["vcpkg-configuration"]["registries"][0]["baseline"] = clib_vcpkg_registry_ref
 
-with open("../../vcpkg.json", "w") as f:
+with open("./vcpkg.json", "w") as f:
     dump(vcpkg_json, f, indent=2)
 
-with open("./workflows/main_ci.yml", "r") as f:
+with open("./.github/workflows/main_ci.yml", "r") as f:
     main_ci_yml = f.read()
 
 main_ci_yml = sub(
     r"(VCPKG_COMMIT_ID: ).*", f"VCPKG_COMMIT_ID: {vcpkg_ref}", main_ci_yml
 )
 
-with open("./workflows/main_ci.yml", "w") as f:
+with open("./.github/workflows/main_ci.yml", "w") as f:
     f.write(main_ci_yml)
