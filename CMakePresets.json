@@ -2,8 +2,7 @@
   "version": 6,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 30,
-    "patch": 0
+    "minor": 30
   },
   "configurePresets": [
     {
@@ -14,17 +13,9 @@
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {
-          "intelliSenseMode": "$env{PROJECT_PLATFORM}-$env{PROJECT_COMPILER}-$env{PROJECT_ARCHITECTURE}",
-          "enableMicrosoftCodeAnalysis": true,
-          "enableClangTidyCodeAnalysis": true
+          "intelliSenseMode": "windows-msvc-x64",
+          "enableMicrosoftCodeAnalysis": true
         }
-      }
-    },
-    {
-      "name": "architecture-x64",
-      "hidden": true,
-      "environment": {
-        "PROJECT_ARCHITECTURE": "x64"
       }
     },
     {
@@ -46,8 +37,8 @@
       "hidden": true,
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
-        "VCPKG_HOST_TRIPLET": "$env{PROJECT_ARCHITECTURE}-$env{PROJECT_PLATFORM}-static-md",
-        "VCPKG_TARGET_TRIPLET": "$env{PROJECT_ARCHITECTURE}-$env{PROJECT_PLATFORM}-static-md"
+        "VCPKG_HOST_TRIPLET": "x64-windows-static-md",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
       }
     },
     {
@@ -57,8 +48,7 @@
         "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
       },
       "environment": {
-        "PROJECT_PLATFORM_FLAGS": "-DWIN32_LEAN_AND_MEAN -DNOMINMAX",
-        "PROJECT_PLATFORM": "windows"
+        "PROJECT_PLATFORM_FLAGS": "-DWIN32_LEAN_AND_MEAN -DNOMINMAX"
       }
     },
     {
@@ -78,8 +68,7 @@
       "name": "compiler-msvc",
       "hidden": true,
       "environment": {
-        "PROJECT_COMPILER_FLAGS": "/permissive- /Zc:preprocessor /EHsc /MP /W4 /WX /external:anglebrackets /external:W0 /bigobj",
-        "PROJECT_COMPILER": "msvc"
+        "PROJECT_COMPILER_FLAGS": "/permissive- /Zc:preprocessor /EHsc /MP /W4 /WX /external:anglebrackets /external:W0 /bigobj"
       }
     },
     {
@@ -97,7 +86,6 @@
       "name": "build-debug-msvc-vcpkg-all",
       "inherits": [
         "buildtype-debug",
-        "architecture-x64",
         "platform-win32-unicode",
         "generator-ninja",
         "compiler-msvc",
@@ -116,7 +104,6 @@
       "name": "build-release-msvc-vcpkg-all",
       "inherits": [
         "buildtype-release",
-        "architecture-x64",
         "platform-win32-unicode",
         "generator-ninja",
         "compiler-msvc",
@@ -135,22 +122,22 @@
   "buildPresets": [
     {
       "name": "debug-msvc-vcpkg-all",
-      "displayName": "Debug (All, MSVC, Vcpkg)",
+      "displayName": "Debug (All, MSVC, vcpkg)",
       "configurePreset": "build-debug-msvc-vcpkg-all"
     },
     {
       "name": "debug-msvc-vcpkg-flatrim",
-      "displayName": "Debug (Flatrim, MSVC, Vcpkg)",
+      "displayName": "Debug (Flatrim, MSVC, vcpkg)",
       "configurePreset": "build-debug-msvc-vcpkg-flatrim"
     },
     {
       "name": "release-msvc-vcpkg-all",
-      "displayName": "Release (All, MSVC, Vcpkg)",
+      "displayName": "Release (All, MSVC, vcpkg)",
       "configurePreset": "build-release-msvc-vcpkg-all"
     },
     {
       "name": "release-msvc-vcpkg-flatrim",
-      "displayName": "Release (Flatrim, MSVC, Vcpkg)",
+      "displayName": "Release (Flatrim, MSVC, vcpkg)",
       "configurePreset": "build-release-msvc-vcpkg-flatrim"
     }
   ]
