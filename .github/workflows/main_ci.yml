@@ -46,6 +46,5 @@ jobs:
       - name: Build
         uses: lukka/run-cmake@v10
         with:
-          cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
           configurePreset: build-debug-msvc-vcpkg-${{ matrix.runtime }}
           buildPreset: debug-msvc-vcpkg-${{ matrix.runtime }}

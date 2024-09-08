@@ -1,11 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
   "name": "commonlibsse-ng",
-  "version-semver": "3.7.0",
-  "description": "A fork of CommonLibSSE with advanced features for modern SKSE development.",
-  "homepage": "https://github.com/CharmedBaryon/CommonLibSSE",
-  "license": "MIT",
-  "supports": "windows & x64",
+  "version-string": "latest",
+  "description": "Fork of a fork of a fork of a fork of a...",
+  "homepage": "https://github.com/alandtse/CommonLibVR/tree/ng",
   "builtin-baseline": "68d349964cb4e8da561fd849d9491e6ba11c5681",
   "dependencies": ["directxtk", "rapidcsv", "spdlog", "openvr"],
   "vcpkg-configuration": {
