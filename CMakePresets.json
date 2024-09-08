@@ -87,14 +87,6 @@
       "hidden": true
     },
     {
-      "name": "runtimes-vr",
-      "hidden": true,
-      "cacheVariables": {
-        "ENABLE_SKYRIM_AE": "OFF",
-        "ENABLE_SKYRIM_SE": "OFF"
-      }
-    },
-    {
       "name": "runtimes-flatrim",
       "hidden": true,
       "cacheVariables": {
@@ -121,11 +113,6 @@
       "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-flatrim"
     },
     {
-      "name": "build-debug-msvc-vcpkg-vr",
-      "inherits": ["build-debug-msvc-vcpkg-all", "runtimes-vr"],
-      "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-vr"
-    },
-    {
       "name": "build-release-msvc-vcpkg-all",
       "inherits": [
         "buildtype-release",
@@ -143,11 +130,6 @@
       "name": "build-release-msvc-vcpkg-flatrim",
       "inherits": ["build-release-msvc-vcpkg-all", "runtimes-flatrim"],
       "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-flatrim"
-    },
-    {
-      "name": "build-release-msvc-vcpkg-vr",
-      "inherits": ["build-release-msvc-vcpkg-all", "runtimes-vr"],
-      "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-vr"
     }
   ],
   "buildPresets": [
@@ -155,11 +137,6 @@
       "name": "debug-msvc-vcpkg-all",
       "displayName": "Debug (All, MSVC, Vcpkg)",
       "configurePreset": "build-debug-msvc-vcpkg-all"
-    },
-    {
-      "name": "debug-msvc-vcpkg-vr",
-      "displayName": "Debug (VR, MSVC, Vcpkg)",
-      "configurePreset": "build-debug-msvc-vcpkg-vr"
     },
     {
       "name": "debug-msvc-vcpkg-flatrim",
@@ -170,11 +147,6 @@
       "name": "release-msvc-vcpkg-all",
       "displayName": "Release (All, MSVC, Vcpkg)",
       "configurePreset": "build-release-msvc-vcpkg-all"
-    },
-    {
-      "name": "release-msvc-vcpkg-vr",
-      "displayName": "Release (VR, MSVC, Vcpkg)",
-      "configurePreset": "build-release-msvc-vcpkg-vr"
     },
     {
       "name": "release-msvc-vcpkg-flatrim",

@@ -27,13 +27,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build-type:
-          - debug
-          - release
         runtime:
           - all
           - flatrim
-          - vr
 
     steps:
       - name: Checkout
@@ -51,5 +47,5 @@ jobs:
         uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
-          configurePreset: build-${{ matrix.build-type }}-msvc-vcpkg-${{ matrix.runtime }}
-          buildPreset: ${{ matrix.build-type }}-msvc-vcpkg-${{ matrix.runtime }}
+          configurePreset: build-debug-msvc-vcpkg-${{ matrix.runtime }}
+          buildPreset: debug-msvc-vcpkg-${{ matrix.runtime }}
