@@ -3,7 +3,7 @@ from re import sub
 from subprocess import run
 
 vcpkg_repo = "https://github.com/microsoft/vcpkg"
-clib_vcpkg_registry_repo = "https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg"
+custom_vcpkg_registry_repo = "https://github.com/ThirdEyeSqueegee/vcpkg-ports"
 
 vcpkg_ref = (
     run(["git", "ls-remote", vcpkg_repo, "refs/heads/master"], capture_output=True)
@@ -13,7 +13,7 @@ vcpkg_ref = (
 )
 
 clib_vcpkg_registry_ref = (
-    run(["git", "ls-remote", clib_vcpkg_registry_repo], capture_output=True)
+    run(["git", "ls-remote", custom_vcpkg_registry_repo], capture_output=True)
     .stdout.decode()
     .splitlines()[0]
     .split()[0]
