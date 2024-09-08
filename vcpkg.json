@@ -5,16 +5,25 @@
   "description": "Fork of a fork of a fork of a fork of a...",
   "homepage": "https://github.com/alandtse/CommonLibVR/tree/ng",
   "builtin-baseline": "68d349964cb4e8da561fd849d9491e6ba11c5681",
-  "dependencies": ["directxtk", "rapidcsv", "spdlog", "openvr"],
+  "dependencies": [
+    "directxtk",
+    "rapidcsv",
+    "spdlog",
+    "openvr"
+  ],
   "vcpkg-configuration": {
     "registries": [
       {
         "kind": "git",
         "repository": "https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg",
-        "baseline": "b067d5b7defc84442fb204619e29472ba8ef64aa",
-        "packages": ["spdlog"]
+        "baseline": "70316cfbe0780b062d096d71e29749da851937e3",
+        "packages": [
+          "spdlog"
+        ]
       }
     ],
-    "overlay-ports": ["./ports"]
+    "overlay-ports": [
+      "./ports"
+    ]
   }
 }
