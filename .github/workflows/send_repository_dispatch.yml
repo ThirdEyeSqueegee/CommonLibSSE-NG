@@ -1,0 +1,22 @@
+name: Send repository dispatch to ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+concurrency:
+  group: send-repository-dispatch
+  cancel-in-progress: true
+
+jobs:
+  send-repository-dispatch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
+          repository: ThirdEyeSqueegee/CommonLibSSE-NG-vcpkg
+          event-type: update-clib-port-event
