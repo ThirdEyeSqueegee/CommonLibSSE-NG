@@ -52,7 +52,6 @@ add_library(
 	STATIC
 	${SOURCES}
 	.clang-format
-	CommonLibSSE.natvis
 )
 
 add_library("${PROJECT_NAME}::${PROJECT_NAME}" ALIAS "${PROJECT_NAME}")
