@@ -7,7 +7,7 @@ Fork of a fork of a fork of a fork of a...
 Add the following to `vcpkg.json`:
 
 ```json
-"dependencies": ["commonlibsse-ng", ...],
+"dependencies": ["commonlibsse-ng", "..."],
 // or
 // "dependencies": [{ "name": "commonlibsse-ng", "features": ["xbyak"] }, ...]
 ...
@@ -22,6 +22,13 @@ Add the following to `vcpkg.json`:
   ],
 }
 ```
+
+## Differences from [upstream](https://github.com/alandtse/CommonLibVR/tree/ng)
+
+- Only `all` (SE, AE, VR -- default) and `flatrim` (SE, AE) presets
+- Less cruft (no Conan, no Xmake, no tests, no `clang-cl` support)
+- `spdlog` uses `std::format`; no implicit `fmt` dependency
+- Available as a vcpkg port (see [Usage](#usage))
 
 ## History
 
