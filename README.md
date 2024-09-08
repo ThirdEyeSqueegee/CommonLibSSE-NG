@@ -4,6 +4,8 @@ Fork of a fork of a fork of a fork of a...
 
 ## Usage
 
+Use the [template plugin](https://github.com/ThirdEyeSqueegee/CLibNGPluginTemplate) for the quickest start. For manual setup:
+
 Add the following to `vcpkg.json`:
 
 ```json
