@@ -6,7 +6,7 @@ Fork of a fork of a fork of a fork of a...
 
 Use the [plugin template](https://github.com/ThirdEyeSqueegee/CLibNGPluginTemplate) for the quickest start. For manual setup:
 
-Add the following to `vcpkg.json`:
+Add the following to your project's `vcpkg.json`:
 
 ```json
 "dependencies": ["commonlibsse-ng", "..."],
@@ -23,6 +23,18 @@ Add the following to `vcpkg.json`:
     }
   ],
 }
+```
+
+Add the following to your project's `CMakeLists.txt`:
+
+```cmake
+find_package(CommonLibSSE CONFIG REQUIRED)
+
+add_commonlibsse_plugin(
+  ${PROJECT_NAME}
+  AUTHOR <your name>
+  SOURCES <your source files>
+)
 ```
 
 ## [Differences from upstream](https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG/compare/ng...main)
