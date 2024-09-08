@@ -7,11 +7,15 @@
   "license": "MIT",
   "supports": "windows & x64",
   "builtin-baseline": "68d349964cb4e8da561fd849d9491e6ba11c5681",
-  "dependencies": ["directxtk", "rapidcsv", "spdlog", "openvr"],
+  "dependencies": ["fmt", "directxtk", "rapidcsv", "spdlog", "openvr"],
   "overrides": [
     {
       "name": "fmt",
       "version": "10.2.1"
+    },
+    {
+      "name": "openvr",
+      "version": "1.0.10"
     }
   ],
   "vcpkg-configuration": {
