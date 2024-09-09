@@ -4,3 +4,7 @@ include(CMakeFindDependencyMacro)
 
 find_dependency(spdlog CONFIG)
 find_dependency(directxtk CONFIG)
+
+if(ENABLE_SKYRIM_VR)
+  find_dependency(OpenVR)
+endif()
