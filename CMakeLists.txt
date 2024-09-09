@@ -84,18 +84,9 @@ target_include_directories(
   PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
-)
-
-target_include_directories(
-  ${PROJECT_NAME}
   PRIVATE
   ${spdlog_INCLUDE_DIRS}
   ${RAPIDCSV_INCLUDE_DIRS}
-)
-
-target_compile_definitions(
-  ${PROJECT_NAME}
-  PUBLIC
 )
 
 target_link_libraries(
@@ -137,7 +128,9 @@ configure_file(
 )
 
 install(
-  FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+  FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindOpenVR.cmake
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
 
