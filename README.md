@@ -8,10 +8,14 @@ Use the [plugin template](https://github.com/ThirdEyeSqueegee/CLibNGPluginTempla
 
 Add the following to your project's `vcpkg.json`:
 
+**NOTE**: Full cross-runtime support (SE, AE, and VR) is enabled by default
+
 ```json
 "dependencies": ["commonlibsse-ng", "..."],
-// or
+// or, to enable xbyak support for the trampoline:
 // "dependencies": [{ "name": "commonlibsse-ng", "features": ["xbyak"] }, ...]
+// or, to only build for flatrim (no VR)
+// "dependencies": [{ "name": "commonlibsse-ng", "default-features": false, "features": ["flatrim"] }, ...]
 ...
 "vcpkg-configuration": {
   "registries": [
