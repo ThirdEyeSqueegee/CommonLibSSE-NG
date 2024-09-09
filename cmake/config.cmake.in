@@ -4,4 +4,3 @@ include(CMakeFindDependencyMacro)
 
 find_dependency(spdlog CONFIG)
 find_dependency(directxtk CONFIG)
-find_dependency(OpenVR)
