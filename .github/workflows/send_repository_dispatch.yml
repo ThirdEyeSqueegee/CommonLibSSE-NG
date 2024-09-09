@@ -6,6 +6,7 @@ on:
     paths:
       - "include/**"
       - "src/**"
+      - "CMakeLists.txt"
   workflow_dispatch:
 
 concurrency:

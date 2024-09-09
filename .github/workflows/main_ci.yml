@@ -27,6 +27,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        build:
+          - debug
+          - release
         runtime:
           - all
           - flatrim
@@ -46,5 +49,5 @@ jobs:
       - name: Build
         uses: lukka/run-cmake@v10
         with:
-          configurePreset: build-debug-msvc-vcpkg-${{ matrix.runtime }}
-          buildPreset: debug-msvc-vcpkg-${{ matrix.runtime }}
+          configurePreset: build-${{ matrix.build }}-${{ matrix.runtime }}
+          buildPreset: ${{ matrix.build }}-${{ matrix.runtime }}

@@ -1,7 +1,6 @@
 # dot folders
 .idea/
 .vs*/
-.xmake/
 
 # folders
 /build*

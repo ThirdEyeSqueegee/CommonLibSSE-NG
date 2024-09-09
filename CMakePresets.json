@@ -6,10 +6,50 @@
   },
   "configurePresets": [
     {
-      "name": "common",
+      "name": "base",
       "hidden": true,
       "cacheVariables": {
-        "CMAKE_CXX_FLAGS": "$env{PROJECT_PLATFORM_FLAGS} $env{PROJECT_TEXT_FLAGS} $env{PROJECT_COMPILER_FLAGS} $penv{CXX_FLAGS}"
+        "CMAKE_CXX_FLAGS": "$env{COMMONLIBSSE_COMPILER} $env{COMMONLIBSSE_PLATFORM} $env{COMMONLIBSSE_UNICODE}",
+        "CMAKE_SHARED_LINKER_FLAGS": "$env{COMMONLIBSSE_LINKER}",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+      }
+    },
+    {
+      "name": "vcpkg",
+      "hidden": true,
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "VCPKG_HOST_TRIPLET": "x64-windows-static-md",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
+      }
+    },
+    {
+      "name": "win32",
+      "hidden": true,
+      "environment": {
+        "COMMONLIBSSE_PLATFORM": "-DWIN32_LEAN_AND_MEAN -DNOMINMAX"
+      }
+    },
+    {
+      "name": "win32-unicode",
+      "hidden": true,
+      "inherits": "win32",
+      "environment": {
+        "COMMONLIBSSE_UNICODE": "-DUNICODE -D_UNICODE"
+      }
+    },
+    {
+      "name": "msvc",
+      "hidden": true,
+      "generator": "Ninja",
+      "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
+      "environment": {
+        "COMMONLIBSSE_COMPILER": "/EHsc /fp:contract /fp:except- /cgthreads8 /MP /diagnostics:caret /sdl /W4 /Zc:__cplusplus /Zc:enumTypes /Zc:preprocessor /Zc:templateScope",
+        "COMMONLIBSSE_LINKER": "/CGTHREADS:8 /DEBUG:FULL"
+      },
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS_RELEASE": "/O2 /Ob3 /fp:fast /GR- /Gw /Qpar",
+        "CMAKE_SHARED_LINKER_FLAGS_RELEASE": "/LTCG:INCREMENTAL /OPT:REF,ICF=4"
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {
@@ -19,126 +59,60 @@
       }
     },
     {
-      "name": "buildtype-debug",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "buildtype-release",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
-    {
-      "name": "packaging-vcpkg",
-      "hidden": true,
-      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-      "cacheVariables": {
-        "VCPKG_HOST_TRIPLET": "x64-windows-static-md",
-        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
-      }
-    },
-    {
-      "name": "platform-win32",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
-      },
-      "environment": {
-        "PROJECT_PLATFORM_FLAGS": "-DWIN32_LEAN_AND_MEAN -DNOMINMAX"
-      }
-    },
-    {
-      "name": "platform-win32-unicode",
-      "hidden": true,
-      "inherits": "platform-win32",
-      "environment": {
-        "PROJECT_TEXT_FLAGS": "-DUNICODE -D_UNICODE"
-      }
-    },
-    {
-      "name": "generator-ninja",
-      "hidden": true,
-      "generator": "Ninja"
-    },
-    {
-      "name": "compiler-msvc",
-      "hidden": true,
-      "environment": {
-        "PROJECT_COMPILER_FLAGS": "/permissive- /Zc:preprocessor /EHsc /MP /W4 /WX /external:anglebrackets /external:W0 /bigobj"
-      }
-    },
-    {
-      "name": "runtimes-all",
-      "hidden": true
-    },
-    {
       "name": "runtimes-flatrim",
       "hidden": true,
       "cacheVariables": {
         "ENABLE_SKYRIM_VR": "OFF"
       }
     },
+
     {
-      "name": "build-debug-msvc-vcpkg-all",
-      "inherits": [
-        "buildtype-debug",
-        "platform-win32-unicode",
-        "generator-ninja",
-        "compiler-msvc",
-        "packaging-vcpkg",
-        "runtimes-all",
-        "common"
-      ],
-      "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-all"
+      "name": "build-release-all",
+      "inherits": ["base", "vcpkg", "win32-unicode", "msvc"],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "binaryDir": "${sourceDir}/build/release-msvc-all"
     },
     {
-      "name": "build-debug-msvc-vcpkg-flatrim",
-      "inherits": ["build-debug-msvc-vcpkg-all", "runtimes-flatrim"],
-      "binaryDir": "${sourceDir}/build/debug-msvc-vcpkg-flatrim"
+      "name": "build-release-flatrim",
+      "inherits": ["build-release-all", "runtimes-flatrim"],
+      "binaryDir": "${sourceDir}/build/release-msvc-flatrim"
     },
     {
-      "name": "build-release-msvc-vcpkg-all",
-      "inherits": [
-        "buildtype-release",
-        "platform-win32-unicode",
-        "generator-ninja",
-        "compiler-msvc",
-        "packaging-vcpkg",
-        "runtimes-all",
-        "common"
-      ],
-      "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-all"
+      "name": "build-debug-all",
+      "inherits": ["base", "vcpkg", "win32-unicode", "msvc"],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "binaryDir": "${sourceDir}/build/debug-msvc-all"
     },
     {
-      "name": "build-release-msvc-vcpkg-flatrim",
-      "inherits": ["build-release-msvc-vcpkg-all", "runtimes-flatrim"],
-      "binaryDir": "${sourceDir}/build/release-msvc-vcpkg-flatrim"
+      "name": "build-debug-flatrim",
+      "inherits": ["build-debug-all", "runtimes-flatrim"],
+      "binaryDir": "${sourceDir}/build/debug-msvc-flatrim"
     }
   ],
   "buildPresets": [
     {
-      "name": "debug-msvc-vcpkg-all",
-      "displayName": "Debug (All, MSVC, vcpkg)",
-      "configurePreset": "build-debug-msvc-vcpkg-all"
+      "name": "debug-all",
+      "displayName": "Debug (All)",
+      "configurePreset": "build-debug-all"
     },
     {
-      "name": "debug-msvc-vcpkg-flatrim",
-      "displayName": "Debug (Flatrim, MSVC, vcpkg)",
-      "configurePreset": "build-debug-msvc-vcpkg-flatrim"
+      "name": "debug-flatrim",
+      "displayName": "Debug (Flatrim)",
+      "configurePreset": "build-debug-flatrim"
     },
     {
-      "name": "release-msvc-vcpkg-all",
-      "displayName": "Release (All, MSVC, vcpkg)",
-      "configurePreset": "build-release-msvc-vcpkg-all"
+      "name": "release-all",
+      "displayName": "Release (All)",
+      "configurePreset": "build-release-all"
     },
     {
-      "name": "release-msvc-vcpkg-flatrim",
-      "displayName": "Release (Flatrim, MSVC, vcpkg)",
-      "configurePreset": "build-release-msvc-vcpkg-flatrim"
+      "name": "release-flatrim",
+      "displayName": "Release (Flatrim)",
+      "configurePreset": "build-release-flatrim"
     }
   ]
 }
