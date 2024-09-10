@@ -45,11 +45,12 @@
       "cmakeExecutable": "C:/Program Files/CMake/bin/cmake.exe",
       "environment": {
         "COMMONLIBSSE_COMPILER": "/EHsc /fp:contract /fp:except- /cgthreads8 /MP /diagnostics:caret /sdl /W4 /Zc:__cplusplus /Zc:enumTypes /Zc:preprocessor /Zc:templateScope",
-        "COMMONLIBSSE_LINKER": "/CGTHREADS:8 /DEBUG:FULL"
+        "COMMONLIBSSE_LINKER": "/CGTHREADS:8"
       },
       "cacheVariables": {
         "CMAKE_CXX_FLAGS_RELEASE": "/O2 /Ob3 /fp:fast /GR- /Gw /Qpar",
-        "CMAKE_SHARED_LINKER_FLAGS_RELEASE": "/LTCG:INCREMENTAL /OPT:REF,ICF=4"
+        "CMAKE_SHARED_LINKER_FLAGS_RELEASE": "/LTCG:INCREMENTAL /OPT:REF,ICF=4",
+        "CMAKE_SHARED_LINKER_FLAGS_DEBUG": "/DEBUG:FULL"
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {
