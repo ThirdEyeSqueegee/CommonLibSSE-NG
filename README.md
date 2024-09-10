@@ -29,7 +29,7 @@ Add the following to your project's `vcpkg.json`:
       "kind": "git",
       "repository": "https://github.com/ThirdEyeSqueegee/vcpkg-ports",
       "baseline": "<hash of the latest commit in the above repo>",
-      "packages": ["spdlog"]
+      "packages": ["openvr", "spdlog"]
     }
   ],
 }
