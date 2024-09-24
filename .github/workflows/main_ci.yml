@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  VCPKG_COMMIT_ID: 98aa6396292d57e737a6ef999d4225ca488859d5
+  VCPKG_COMMIT_ID: f176b58f35a75f9f8f54099cd9df97d2e2793a2e
 
 jobs:
   test-build:
