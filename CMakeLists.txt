@@ -60,7 +60,7 @@ add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_compile_definitions(
   ${PROJECT_NAME}
-  PRIVATE
+  PUBLIC
   WINVER=0x0601 # windows 7, minimum supported version by skyrim special edition
   _WIN32_WINNT=0x0601
   $<$<BOOL:${SKSE_SUPPORT_XBYAK}>:SKSE_SUPPORT_XBYAK>
