@@ -106,7 +106,7 @@ if(CMAKE_BUILD_TYPE STREQUAL Release)
   target_compile_options(
     ${PROJECT_NAME}
     PRIVATE
-    /fp:fast /GL /GR- /Gw /Qpar
+    /fp:fast /Ob3 /GL /GR- /Gw /Qpar
   )
   target_link_options(
     ${PROJECT_NAME}
