@@ -42,7 +42,7 @@ if(ENABLE_SKYRIM_VR)
   find_package(OpenVR REQUIRED)
 endif()
 
-file(GLOB_RECURSE SOURCES include/**/*.h src/**/*.cpp)
+file(GLOB_RECURSE SOURCES include/*.h src/*.cpp)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/include/SKSE/Impl/PCH.h)
 
 source_group(
