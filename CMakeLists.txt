@@ -117,7 +117,7 @@ endif()
 
 target_link_libraries(
   ${PROJECT_NAME}
-  PRIVATE
+  PUBLIC
   spdlog::spdlog
   Microsoft::DirectXTK
   $<$<BOOL:${ENABLE_SKYRIM_VR}>:OpenVR::OpenVR>
