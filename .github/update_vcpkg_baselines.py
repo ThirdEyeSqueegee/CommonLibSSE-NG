@@ -28,7 +28,7 @@ vcpkg_json["vcpkg-configuration"]["registries"][0]["baseline"] = (
 )
 
 vcpkg_json_str = dumps(vcpkg_json, indent=2)
-vcpkg_json_str += "\r\n"
+vcpkg_json_str += "\n"
 
 with open("./vcpkg.json", "w", newline="\r\n") as f:
     f.write(vcpkg_json_str)
