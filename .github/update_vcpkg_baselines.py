@@ -1,4 +1,4 @@
-from json import dump, load
+from json import dumps, load
 from re import sub
 from subprocess import run
 
@@ -19,7 +19,7 @@ custom_vcpkg_registry_ref = (
     .split()[0]
 )
 
-with open("./vcpkg.json", "r") as f:
+with open("./vcpkg.json") as f:
     vcpkg_json = load(f)
 
 vcpkg_json["builtin-baseline"] = vcpkg_ref
@@ -27,10 +27,13 @@ vcpkg_json["vcpkg-configuration"]["registries"][0]["baseline"] = (
     custom_vcpkg_registry_ref
 )
 
-with open("./vcpkg.json", "w") as f:
-    dump(vcpkg_json, f, indent=2)
+vcpkg_json_str = dumps(vcpkg_json, indent=2)
+vcpkg_json_str += "\r\n"
 
-with open("./.github/workflows/main_ci.yml", "r") as f:
+with open("./vcpkg.json", "w", newline="\r\n") as f:
+    f.write(vcpkg_json_str)
+
+with open("./.github/workflows/main_ci.yml") as f:
     main_ci_yml = f.read()
 
 main_ci_yml = sub(
