@@ -12,9 +12,9 @@ namespace RE
 
 		struct DIRECTIONAL_LIGHT_RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT       \
-	NiPoint3 worldDir; /* 00 */ \
-	char     _pad[0xC];   /* 0c  NiColor m_kEffectColor? */
+#define RUNTIME_DATA_CONTENT     \
+	NiPoint3 worldDir;  /* 00 */ \
+	char     _pad[0xC]; /* 0c  NiColor m_kEffectColor? */
 
 			RUNTIME_DATA_CONTENT
 		};

@@ -145,7 +145,8 @@ namespace RE
 			}
 		}
 
-		[[nodiscard]] inline std::uint16_t GetLoadedLightModCount() const noexcept {
+		[[nodiscard]] inline std::uint16_t GetLoadedLightModCount() const noexcept
+		{
 			if SKYRIM_REL_CONSTEXPR (REL::Module::IsVR()) {
 				return (!VRcompiledFileCollection) ? 0 : static_cast<std::uint16_t>(VRcompiledFileCollection->smallFiles.size());
 			} else {

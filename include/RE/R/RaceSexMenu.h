@@ -41,7 +41,7 @@ namespace RE
 	std::uint8_t                         unk1A1;    /* 161 */ \
 	std::uint16_t                        unk1A2;    /* 162 */ \
 	std::uint32_t                        unk1A4;    /* 164 */
-			RUNTIME_DATA_CONTENT
+            RUNTIME_DATA_CONTENT
 		};
 		static_assert(sizeof(RUNTIME_DATA) == 0x168);
 

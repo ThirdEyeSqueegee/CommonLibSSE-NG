@@ -41,7 +41,7 @@ namespace RE
 		public TESModelTextureSwap,  // 040
 		public TESIcon,              // 078
 		public BGSMessageIcon,       // 088
-		public TESValueForm         // 0A0
+		public TESValueForm          // 0A0
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		,
 		public TESWeightForm,              // 0B0

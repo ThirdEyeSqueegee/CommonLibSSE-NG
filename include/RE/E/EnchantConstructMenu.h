@@ -180,10 +180,10 @@ namespace RE
 			~EnchantConstructMenu() override;  // 00
 
 			// override (CraftingSubMenu)
-			void Accept(CallbackProcessor* a_cbReg) override;          // 01
+			void               Accept(CallbackProcessor* a_cbReg) override;          // 01
 			[[nodiscard]] bool HasItemPreview() override;                            // 04 - { return currentCategory != Enchantment || craftItemPreview; }
-			bool ProcessUserEvent(BSFixedString* a_control) override;  // 05
-			void SetItemCardInfo(ItemCard* a_itemCard) override;       // 07
+			bool               ProcessUserEvent(BSFixedString* a_control) override;  // 05
+			void               SetItemCardInfo(ItemCard* a_itemCard) override;       // 07
 
 			void RenameItem(const char* a_name);
 			void RenameItem_Impl(InventoryEntryData* a_entryData, ExtraDataList* a_extraList, const char* a_name);

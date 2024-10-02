@@ -63,7 +63,7 @@ namespace RE
 		struct UIMenuEntry
 		{
 		public:
-			UIMenuEntry(){};
+			UIMenuEntry() {};
 
 			UIMenuEntry(GPtr<IMenu> a_menu, Create_t* a_create) :
 				menu(a_menu), create(a_create) {}

@@ -396,13 +396,13 @@ namespace SKSE
 		char                pluginName[256] = {};
 		char                author[256] = {};
 		char                supportEmail[252] = {};
-		bool                noStructUse : 1 = false;
-		std::uint8_t        padding1 : 7 = 0;
+		bool                noStructUse: 1 = false;
+		std::uint8_t        padding1: 7 = 0;
 		std::uint8_t        padding2 = 0;
 		std::uint16_t       padding3 = 0;
 		bool                addressLibrary: 1 = false;
 		bool                sigScanning: 1 = false;
-		bool                structsPost629 : 1 = false;
+		bool                structsPost629: 1 = false;
 		std::uint8_t        padding4: 5 = 0;
 		std::uint8_t        padding5 = 0;
 		std::uint16_t       padding6 = 0;
@@ -562,9 +562,9 @@ namespace SKSE
 			}
 
 		private:
-			const bool                           _addressLibrary : 1 = true;
+			const bool                           _addressLibrary: 1 = true;
 			const bool                           _signatureScanning: 1 = false;
-			const bool                           _structsPost629 : 1 = false;
+			const bool                           _structsPost629: 1 = false;
 			[[maybe_unused]] const std::uint8_t  _pad0: 5 = 0;
 			[[maybe_unused]] const std::uint8_t  _pad1{ 0 };
 			[[maybe_unused]] const std::uint16_t _pad2{ 0 };
@@ -604,7 +604,7 @@ namespace SKSE
 			 * both struct layouts in a single plugin. If your plugin has any RE'd structs that have
 			 * changed you should override this.
 			 */
-			const StructCompatibility StructCompatibility{StructCompatibility::Independent};
+			const StructCompatibility StructCompatibility{ StructCompatibility::Independent };
 
 			/**
 		     * A definition of the runtime compatibility for the plugin.
