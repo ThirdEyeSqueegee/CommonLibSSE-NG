@@ -28,7 +28,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(GNUInstallDirs)
 
 if(${PROJECT_SOURCE_DIR} STREQUAL ${PROJECT_BINARY_DIR})
-  message(FATAL_ERROR "in-source builds are not allowed")
+  message(FATAL_ERROR "In-source builds are not allowed")
 endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -42,7 +42,13 @@ if(ENABLE_SKYRIM_VR)
   find_package(OpenVR REQUIRED)
 endif()
 
-file(GLOB_RECURSE SOURCES include/*.h src/*.cpp)
+file(
+  GLOB_RECURSE
+  SOURCES
+  CONFIGURE_DEPENDS
+   ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/include/SKSE/Impl/PCH.h)
 
 source_group(
