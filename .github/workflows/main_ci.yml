@@ -17,9 +17,6 @@ concurrency:
   group: main-ci
   cancel-in-progress: true
 
-env:
-  VCPKG_COMMIT_ID: 9558037875497b9db8cf38fcd7db68ec661bffe7
-
 jobs:
   test-build:
     runs-on: windows-latest
@@ -43,8 +40,6 @@ jobs:
 
       - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
-        with:
-          vcpkgGitCommitId: ${{ env.VCPKG_COMMIT_ID }}
 
       - name: Build
         uses: lukka/run-cmake@v10
