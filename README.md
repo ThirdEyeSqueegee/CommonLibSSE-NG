@@ -54,6 +54,11 @@ add_commonlibsse_plugin(
 - `spdlog` uses `std::format`; no implicit `fmt` dependency
 - Available as a vcpkg port (see [Usage](#usage))
 
+## Comparisons
+
+- [powerof3/CommonLibSSE/dev](https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG/compare/main...powerof3:CommonLibSSE:dev)
+- [alandtse/CommonLibVR/ng](https://github.com/ThirdEyeSqueegee/CommonLibSSE-NG/compare/main...ng)
+
 ## History
 
 [Ryan-rsm-McKenzie/CommonLibSSE](https://github.com/Ryan-rsm-McKenzie/CommonLibSSE) -> [powerof3/CommonLibSSE](https://github.com/powerof3/CommonLibSSE) -> [CharmedBaryon/CommonLibSSE-NG](https://github.com/CharmedBaryon/CommonLibSSE-NG) -> [alandtse/CommonLibVR/ng](https://github.com/alandtse/CommonLibVR/tree/ng) -> [this repo](#)
