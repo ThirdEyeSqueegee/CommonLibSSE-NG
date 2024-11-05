@@ -36,10 +36,9 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 find_package(spdlog CONFIG REQUIRED)
 find_package(directxtk CONFIG REQUIRED)
 
-find_path(RAPIDCSV_INCLUDE_DIRS rapidcsv.h)
-
 if(ENABLE_SKYRIM_VR)
   find_package(OpenVR REQUIRED)
+  find_path(RAPIDCSV_INCLUDE_DIRS rapidcsv.h)
 endif()
 
 file(
@@ -93,7 +92,7 @@ target_include_directories(
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
   PRIVATE
-  ${RAPIDCSV_INCLUDE_DIRS}
+  $<$<BOOL:${ENABLE_SKYRIM_VR}>:${RAPIDCSV_INCLUDE_DIRS}>
 )
 
 target_precompile_headers(
