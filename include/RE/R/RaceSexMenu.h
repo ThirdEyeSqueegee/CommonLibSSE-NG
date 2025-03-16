@@ -33,7 +33,7 @@ namespace RE
 	std::uint64_t                        unk188;    /* 148 */ \
 	std::uint32_t                        unk190;    /* 150 */ \
 	std::uint32_t                        unk194;    /* 154 */ \
-	stl::enumeration<SEX, std::uint32_t> sex;       /* 158 */ \
+	REX::EnumSet<SEX, std::uint32_t> sex;       /* 158 */ \
 	std::uint16_t                        unk19C;    /* 15C */ \
 	std::uint8_t                         unk19E;    /* 15E */ \
 	std::uint8_t                         pad19F;    /* 15F */ \

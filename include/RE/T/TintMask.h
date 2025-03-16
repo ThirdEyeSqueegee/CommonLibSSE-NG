@@ -33,7 +33,7 @@ namespace RE
         TESTexture*                           texture;
         Color                                 color;
         float                                 alpha;
-        stl::enumeration<Type, std::uint32_t> type;
+        REX::EnumSet<Type, std::uint32_t> type;
     };
     static_assert(sizeof(TintMask) == 0x18);
 }
