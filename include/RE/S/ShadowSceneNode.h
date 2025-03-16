@@ -44,7 +44,7 @@ namespace RE
 		{
 #define RUNTIME_DATA_CONTENT                                                                    \
 	std::uint64_t                      unk128;                /* 128 */                         \
-	BSTArray<NiPointer<BSLight>>       activeLights;     /* 130 */                         \
+	BSTArray<NiPointer<BSLight>>       activeLights;          /* 130 */                         \
 	BSTArray<NiPointer<BSShadowLight>> activeShadowLights;    /* 148 */                         \
 	BSTArray<NiPointer<BSLight>>       lightQueueAdd;         /* 160 */                         \
 	BSTArray<NiPointer<BSLight>>       lightQueueRemove;      /* 178 */                         \

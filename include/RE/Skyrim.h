@@ -329,6 +329,7 @@
 #include "RE/B/BSPortalSharedNode.h"
 #include "RE/B/BSPrecomputedNavmeshInfoPathMap.h"
 #include "RE/B/BSReloadShaderI.h"
+#include "RE/B/BSRenderManager.h"
 #include "RE/B/BSRenderPass.h"
 #include "RE/B/BSResource.h"
 #include "RE/B/BSResourceEntry.h"

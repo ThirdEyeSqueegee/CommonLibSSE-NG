@@ -48,11 +48,11 @@ namespace RE
 		struct CAMERASTATE_RUNTIME_DATA
 		{
 #if !defined(ENABLE_SKYRIM_VR)  // Non-VR
-#	define CAMERASTATE_RUNTIME_DATA_CONTENT                                                                                                   \
-		ViewData camViewData;                                           /* 08 VR is BSTArray, Each array has 2 elements (one for each eye?) */ \
-		NiPoint3 posAdjust;                                             /* 20 */                                                               \
-		NiPoint3 currentPosAdjust;                                      /* 38 */                                                               \
-		NiPoint3 previousPosAdjust;                                     /* 50 */                                                               \
+#	define CAMERASTATE_RUNTIME_DATA_CONTENT                                                                       \
+		ViewData camViewData;               /* 08 VR is BSTArray, Each array has 2 elements (one for each eye?) */ \
+		NiPoint3 posAdjust;                 /* 20 */                                                               \
+		NiPoint3 currentPosAdjust;          /* 38 */                                                               \
+		NiPoint3 previousPosAdjust;         /* 50 */                                                               \
 		#elif defined(EXCLUSIVE_SKYRIM_VR)  // VR
 #	define CAMERASTATE_RUNTIME_DATA_CONTENT                                                                         \
 		BSTArray<ViewData> camViewData;       /* 08 VR is BSTArray, Each array has 2 elements (one for each eye?) */ \

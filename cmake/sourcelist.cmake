@@ -258,6 +258,7 @@ set(SOURCES
 	include/RE/B/BSISoundOutputModel.h
 	include/RE/B/BSImagespaceShader.h
 	include/RE/B/BSImagespaceShaderBlur3.h
+	include/RE/B/BSImagespaceShaderISTemporalAA.h
 	include/RE/B/BSInputDevice.h
 	include/RE/B/BSInputDeviceFactory.h
 	include/RE/B/BSInputDeviceManager.h
@@ -327,6 +328,7 @@ set(SOURCES
 	include/RE/B/BSPortalSharedNode.h
 	include/RE/B/BSPrecomputedNavmeshInfoPathMap.h
 	include/RE/B/BSReloadShaderI.h
+	include/RE/B/BSRenderManager.h
 	include/RE/B/BSRenderPass.h
 	include/RE/B/BSResource.h
 	include/RE/B/BSResourceEntry.h
@@ -350,6 +352,7 @@ set(SOURCES
 	include/RE/B/BSShaderPropertyLightData.h
 	include/RE/B/BSShaderRenderTargets.h
 	include/RE/B/BSShaderTextureSet.h
+	include/RE/B/BSShadowDirectionalLight.h
 	include/RE/B/BSShadowFrustumLight.h
 	include/RE/B/BSShadowLight.h
 	include/RE/B/BSShadowParabolicLight.h
@@ -400,7 +403,6 @@ set(SOURCES
 	include/RE/B/BSUtilityShader.h
 	include/RE/B/BSVRInterface.h
 	include/RE/B/BSValueNode.h
-	include/RE/B/BSVRInterface.h
 	include/RE/B/BSVirtualKeyboardDevice.h
 	include/RE/B/BSVisit.h
 	include/RE/B/BSVolumetricLightingRenderData.h
@@ -1656,6 +1658,7 @@ set(SOURCES
 	include/RE/T/TextureFormat.h
 	include/RE/T/ThirdPersonState.h
 	include/RE/T/ThumbstickEvent.h
+	include/RE/T/TintMask.h
 	include/RE/T/TitleSequenceMenu.h
 	include/RE/T/TogglePOVHandler.h
 	include/RE/T/ToggleRunHandler.h
@@ -1699,6 +1702,7 @@ set(SOURCES
 	include/RE/W/WorldSpaceMenu.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
+	include/REL/Common.h
 	include/REL/ID.h
 	include/REL/Module.h
 	include/REL/Offset.h

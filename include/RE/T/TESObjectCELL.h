@@ -256,15 +256,15 @@ namespace RE
 		}
 
 		// members
-		mutable BSSpinLock                        grassCreateLock;  // 030
-		mutable BSSpinLock                        grassTaskLock;    // 038
+		mutable BSSpinLock                    grassCreateLock;  // 030
+		mutable BSSpinLock                    grassTaskLock;    // 038
 		REX::EnumSet<Flag, std::uint16_t>     cellFlags;        // 040
-		std::uint16_t                             cellGameFlags;    // 042
+		std::uint16_t                         cellGameFlags;    // 042
 		REX::EnumSet<CellState, std::uint8_t> cellState;        // 044
-		bool                                      autoWaterLoaded;  // 045
-		bool                                      cellDetached;     // 046
-		std::uint8_t                              pad047;           // 047
-		ExtraDataList                             extraList;        // 048
+		bool                                  autoWaterLoaded;  // 045
+		bool                                  cellDetached;     // 046
+		std::uint8_t                          pad047;           // 047
+		ExtraDataList                         extraList;        // 048
 
 #ifndef ENABLE_SKYRIM_AE
 		RUNTIME_DATA_CONTENT;

@@ -53,9 +53,9 @@ namespace RE
 
 			//members
 			char _pad1[0xD0];
-			bool firstPerson;      // 128
-			char _pad0[0x3];       // 129
-			bool drawDecals;       // 130
+			bool firstPerson;  // 128
+			char _pad0[0x3];   // 129
+			bool drawDecals;   // 130
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 			RUNTIME_DATA_CONTENT;  // 130
 #elif defined(EXCLUSIVE_SKYRIM_VR)

@@ -30,13 +30,13 @@ namespace RE
 		~NiGeometry() override;  // 00
 
 		// override (NiAVObject)
-		const NiRTTI* GetRTTI() const override;                                                                                    // 02
-		void          LoadBinary(NiStream& a_stream) override;                                                                     // 18
-		void          LinkObject(NiStream& a_stream) override;                                                                     // 19
-		bool          RegisterStreamables(NiStream& a_stream) override;                                                            // 1A
-		void          SaveBinary(NiStream& a_stream) override;                                                                     // 1B
-		bool          IsEqual(NiObject* a_object) override;                                                                        // 1C
-		void          ProcessClone(NiCloningProcess& a_cloning) override;                                                          // 1D
+		const NiRTTI* GetRTTI() const override;                            // 02
+		void          LoadBinary(NiStream& a_stream) override;             // 18
+		void          LinkObject(NiStream& a_stream) override;             // 19
+		bool          RegisterStreamables(NiStream& a_stream) override;    // 1A
+		void          SaveBinary(NiStream& a_stream) override;             // 1B
+		bool          IsEqual(NiObject* a_object) override;                // 1C
+		void          ProcessClone(NiCloningProcess& a_cloning) override;  // 1D
 
 		// override (NiObject)
 		NiGeometry* AsNiGeometry() { return nullptr; }                             // 0D

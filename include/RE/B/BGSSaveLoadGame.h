@@ -98,20 +98,20 @@ namespace RE
 
 		struct RUNTIME_DATA2
 		{
-#define RUNTIME_DATA2_CONTENT                                                 \
-	BGSSaveLoadFormIDMap                   worldspaceFormIDMap; /*030, 1fe */ \
-	BSTHashMap<FormID, ActorHandle>        unk98;               /*098*/       \
-	BGSSaveLoadReferencesMap               unkC8;               /*0C8*/       \
-	BSTHashMap<FormID, FormID>             unk158;              /*158*/       \
-	BGSConstructFormsInAllFilesMap         reconstructFormsMap; /*188*/       \
-	BGSSaveLoadQueuedSubBufferMap          queuedSubBuffersMap; /*208*/       \
-	BGSSaveLoadFormIDMap                   formIDMap;           /*298*/       \
-	BSTArray<void*>                        saveLoadHistory;     /*300*/       \
-	BSTArray<void*>                        unk318;              /*318*/       \
-	BGSSaveLoadChangesMap*                 saveLoadChanges;     /*330*/       \
-	std::uint64_t                          unk338;              /*338*/       \
+#define RUNTIME_DATA2_CONTENT                                             \
+	BGSSaveLoadFormIDMap               worldspaceFormIDMap; /*030, 1fe */ \
+	BSTHashMap<FormID, ActorHandle>    unk98;               /*098*/       \
+	BGSSaveLoadReferencesMap           unkC8;               /*0C8*/       \
+	BSTHashMap<FormID, FormID>         unk158;              /*158*/       \
+	BGSConstructFormsInAllFilesMap     reconstructFormsMap; /*188*/       \
+	BGSSaveLoadQueuedSubBufferMap      queuedSubBuffersMap; /*208*/       \
+	BGSSaveLoadFormIDMap               formIDMap;           /*298*/       \
+	BSTArray<void*>                    saveLoadHistory;     /*300*/       \
+	BSTArray<void*>                    unk318;              /*318*/       \
+	BGSSaveLoadChangesMap*             saveLoadChanges;     /*330*/       \
+	std::uint64_t                      unk338;              /*338*/       \
 	REX::EnumSet<Flags, std::uint32_t> flags;               /*340*/       \
-	std::uint8_t                           currentMinorVersion; /*344 */
+	std::uint8_t                       currentMinorVersion; /*344 */
             RUNTIME_DATA2_CONTENT
 		};
 

@@ -352,7 +352,6 @@ namespace RE
 		FaceRelatedData*                           faceRelatedData[SEXES::kTotal];                 // 4A8
 	private:
 		KEEP_FOR_RE()
-
 	};
 	static_assert(sizeof(TESRace) == 0x4B8);
 }

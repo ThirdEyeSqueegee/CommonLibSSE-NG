@@ -61,7 +61,6 @@ namespace RE
 		std::uint32_t                      pad2C;   // 2C
 	private:
 		KEEP_FOR_RE()
-	
 	};
 	static_assert(sizeof(NiPSysModifier) == 0x30);
 }

@@ -216,8 +216,8 @@ namespace RE
 
 			static const bool isVr = REL::Module::IsVR();
 			if (isVr) {
-				auto& vrData = shadowState->GetVRRuntimeData();
-				auto* buffer = reinterpret_cast<ID3D11Buffer*>(group.buffer);
+				auto&      vrData = shadowState->GetVRRuntimeData();
+				auto*      buffer = reinterpret_cast<ID3D11Buffer*>(group.buffer);
 				const auto bufferIndex = static_cast<UINT>(level);
 				if (vrData.VSConstantBuffers[bufferIndex] != buffer) {
 					deviceContext->VSSetConstantBuffers(bufferIndex, 1, &group.buffer);

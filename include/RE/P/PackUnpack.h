@@ -27,7 +27,8 @@ namespace RE
 		};
 
 		template <class T>
-		requires(is_builtin_convertible_v<T>) struct GetRawType<T>
+			requires(is_builtin_convertible_v<T>)
+		struct GetRawType<T>
 		{
 			[[nodiscard]] constexpr TypeInfo::RawType operator()() const noexcept
 			{
@@ -36,7 +37,8 @@ namespace RE
 		};
 
 		template <class T>
-		requires(is_form_pointer_v<T>) struct GetRawType<T>
+			requires(is_form_pointer_v<T>)
+		struct GetRawType<T>
 		{
 			[[nodiscard]] constexpr TypeInfo::RawType operator()() const noexcept
 			{
@@ -45,7 +47,8 @@ namespace RE
 		};
 
 		template <class T>
-		requires(is_alias_pointer_v<T>) struct GetRawType<T>
+			requires(is_alias_pointer_v<T>)
+		struct GetRawType<T>
 		{
 			[[nodiscard]] constexpr TypeInfo::RawType operator()() const noexcept
 			{
@@ -54,7 +57,8 @@ namespace RE
 		};
 
 		template <class T>
-		requires(is_active_effect_pointer_v<T>) struct GetRawType<T>
+			requires(is_active_effect_pointer_v<T>)
+		struct GetRawType<T>
 		{
 			[[nodiscard]] constexpr TypeInfo::RawType operator()() const noexcept
 			{
@@ -63,8 +67,9 @@ namespace RE
 		};
 
 		template <class T>
-		requires((is_array_v<T> || is_reference_wrapper_v<T>)&&(is_builtin_convertible_v<typename T::value_type> || is_form_pointer_v<typename T::value_type> ||
-																is_alias_pointer_v<typename T::value_type> || is_active_effect_pointer_v<typename T::value_type>)) struct GetRawType<T>
+			requires((is_array_v<T> || is_reference_wrapper_v<T>) && (is_builtin_convertible_v<typename T::value_type> || is_form_pointer_v<typename T::value_type> ||
+																		 is_alias_pointer_v<typename T::value_type> || is_active_effect_pointer_v<typename T::value_type>))
+		struct GetRawType<T>
 		{
 			[[nodiscard]] constexpr TypeInfo::RawType operator()() const noexcept
 			{
