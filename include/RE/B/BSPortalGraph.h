@@ -20,6 +20,24 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BSPortalGraph;
 		inline static constexpr auto VTABLE = VTABLE_BSPortalGraph;
 
+		template <typename T>
+		struct ListEntry
+		{
+			ListEntry<T>* next;   // 00
+			ListEntry<T>* prev;   // 08
+			T*            value;  // 10
+		};
+		static_assert(sizeof(ListEntry<BSPortal>) == 0x18);
+
+		template <typename T>
+		struct List
+		{
+			ListEntry<T>* first;  // 00
+			ListEntry<T>* last;   // 08
+			uint32_t      count;  // 10
+		};
+		static_assert(sizeof(List<BSPortal>) == 0x18);
+
 		~BSPortalGraph() override;  // 00
 
 		// members

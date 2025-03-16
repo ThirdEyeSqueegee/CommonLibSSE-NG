@@ -223,6 +223,9 @@ if has_config("tests") then
         -- set target kind
         set_kind("binary")
 
+        -- set build by default
+        set_default(os.scriptdir() == os.projectdir())
+
         -- add dependencies
         add_deps("commonlibsse-ng")
 

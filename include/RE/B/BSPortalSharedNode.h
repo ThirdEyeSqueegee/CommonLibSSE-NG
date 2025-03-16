@@ -21,11 +21,12 @@ namespace RE
 		const NiRTTI* GetRTTI() const override;                           // 02
 		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
 #ifndef SKYRIM_CROSS_VR
-		void OnVisible(NiCullingProcess& a_process) override;  // 34
+		// The following are virtual functions past the point where VR compatibility breaks.
+		void          OnVisible(NiCullingProcess& a_process) override;    // 34
 #endif
 		// members
-		BSTArray<BSLight*> lights;  // 128
-		BSPortal*          portal;  // 140
+		BSTArray<BSLight*> lights;  // 128, VR 150
+		BSPortal*          portal;  // 140, VR 168
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BSPortalSharedNode) == 0x148);

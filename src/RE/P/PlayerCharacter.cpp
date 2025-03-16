@@ -35,7 +35,7 @@ namespace RE
 	void PlayerCharacter::ActivatePickRefVR(VR_DEVICE a_device)
 	{
 		using func_t = decltype(&PlayerCharacter::ActivatePickRefVR);
-		REL::Relocation<func_t> func{ RELOCATION_ID(39471, 40548) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39471, 40548) };
 		return func(this, a_device);
 	}
 
