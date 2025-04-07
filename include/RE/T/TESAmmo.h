@@ -156,7 +156,7 @@ namespace RE
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		RUNTIME_DATA_CONTENT;  // 110
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-		RUNTIME_DATA_CONTENT;              // VR 100
+		RUNTIME_DATA_CONTENT;  // VR 100
 #endif
 	private:
 		KEEP_FOR_RE()

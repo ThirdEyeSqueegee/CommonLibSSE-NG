@@ -237,9 +237,9 @@ namespace SKSE
 
 		template <class... Args>
 		enumeration(Args...) -> enumeration<
-			std::common_type_t<Args...>,
-			std::underlying_type_t<
-				std::common_type_t<Args...>>>;
+								 std::common_type_t<Args...>,
+								 std::underlying_type_t<
+									 std::common_type_t<Args...>>>;
 	}
 }
 
@@ -631,7 +631,7 @@ namespace REL
 #ifdef _DEBUG
 // Generates a concrete function to force the class to be included in the PDB when loading types from PDB for IDA/Ghidra
 #	define KEEP_FOR_RE() \
-		void REdebug(){};
+		void REdebug() {};
 #else
 // Generates a concrete function to help with RE, does nothing on release builds
 #	define KEEP_FOR_RE()
