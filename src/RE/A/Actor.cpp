@@ -1971,9 +1971,9 @@ namespace RE
 		return RelocateVirtual<decltype(&Actor::CalculateCachedOwnerIsNPC)>(0x116, 0x118, this);
 	}
 
-	void Actor::Unk_117()
+	void Actor::Unk_117(NiPoint3& a_origin)
 	{
-		RelocateVirtual<decltype(&Actor::Unk_117)>(0x117, 0x119, this);
+		RelocateVirtual<decltype(&Actor::Unk_117)>(0x117, 0x119, this, a_origin);
 	}
 
 	void Actor::InitValues()

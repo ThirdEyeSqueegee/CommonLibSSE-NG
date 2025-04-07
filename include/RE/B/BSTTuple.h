@@ -220,6 +220,8 @@ namespace RE
 		noexcept(noexcept(a_lhs.swap(a_rhs)))                    //
 		requires(std::is_swappable_v<T1> &&
 				 std::is_swappable_v<T2>)
+		requires(std::is_swappable_v<T1> &&
+				 std::is_swappable_v<T2>)
 	{
 		a_lhs.swap(a_rhs);
 	}

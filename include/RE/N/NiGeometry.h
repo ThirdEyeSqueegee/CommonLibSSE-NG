@@ -65,7 +65,9 @@ namespace RE
 	private:
 		KEEP_FOR_RE()
 	};
-#if defined(EXCLUSIVE_SKYRIM_VR)
+#if defined(EXCLUSIVE_SKYRIM_FLAT)
+	static_assert(sizeof(NiGeometry) == 0x138);
+#elif defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(NiGeometry) == 0x160);
 #else
 	static_assert(sizeof(NiGeometry) == 0x138);

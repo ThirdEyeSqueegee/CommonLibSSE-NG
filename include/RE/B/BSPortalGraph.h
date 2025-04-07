@@ -3,6 +3,7 @@
 #include "RE/B/BSTArray.h"
 #include "RE/N/NiRefObject.h"
 #include "RE/N/NiSmartPointer.h"
+#include "RE/N/NiTPointerList.h"
 
 namespace RE
 {
@@ -40,8 +41,8 @@ namespace RE
 		~BSPortalGraph() override;  // 00
 
 		// members
-		List<BSOcclusionShape>                occlusionShapes;   // 10
-		List<BSPortal>                        portals;           // 28
+		NiTPointerList<BSOcclusionShape>      occlusionShapes;   // 10
+		NiTPointerList<BSPortal>              portals;           // 28
 		BSTArray<NiPointer<BSMultiBoundRoom>> rooms;             // 40
 		BSTArray<NiPointer<NiAVObject>>       unk58;             // 58
 		NiPointer<BSPortalSharedNode>         portalSharedNode;  // 70
