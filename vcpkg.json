@@ -4,7 +4,7 @@
   "version-string": "latest",
   "description": "Fork of a fork of a fork of a fork of a...",
   "homepage": "https://github.com/alandtse/CommonLibVR/tree/ng",
-  "builtin-baseline": "e9d0d6fe71ec440a6a7906f92f941a181b937556",
+  "builtin-baseline": "454442c12dda11848ed97d50ada7db456bcfc582",
   "dependencies": [
     "directxtk",
     "rapidcsv",
