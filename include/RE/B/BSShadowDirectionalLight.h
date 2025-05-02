@@ -12,16 +12,16 @@ namespace RE
 
 		struct RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT                                                            \
-	NiPoint3                              lightDirection;             /* 560, VR 5C0 */ \
-	NiPoint3                              previousLightDirection;     /* 56C, VR 5CC */ \
-	NiPointer<NiCamera>                   cullingCamera;              /* 578, VR 5D8 */ \
-	BSTArray<NiPointer<BSCullingProcess>> cullingProcesses;           /* 580, VR 5E0 */ \
-	float                                 startSplitDistances[3];     /* 598, VR 5F8 */ \
-	float                                 endSplitDistances[3];       /* 5A4, VR 604 */ \
-	float                                 lightDirectionUpdateTimer;  /* 5B0, VR 610 */ \
-	bool                                  cameraShifted;              /* 5B4, VR 614 */
-			RUNTIME_DATA_CONTENT
+#define RUNTIME_DATA_CONTENT                                                           \
+	NiPoint3                              lightDirection;            /* 560, VR 5C0 */ \
+	NiPoint3                              previousLightDirection;    /* 56C, VR 5CC */ \
+	NiPointer<NiCamera>                   cullingCamera;             /* 578, VR 5D8 */ \
+	BSTArray<NiPointer<BSCullingProcess>> cullingProcesses;          /* 580, VR 5E0 */ \
+	float                                 startSplitDistances[3];    /* 598, VR 5F8 */ \
+	float                                 endSplitDistances[3];      /* 5A4, VR 604 */ \
+	float                                 lightDirectionUpdateTimer; /* 5B0, VR 610 */ \
+	bool                                  cameraShifted;             /* 5B4, VR 614 */
+            RUNTIME_DATA_CONTENT
 		};
 		static_assert(sizeof(RUNTIME_DATA) == 0x58);
 
@@ -50,8 +50,8 @@ namespace RE
 
 		// members
 #ifndef SKYRIM_CROSS_VR
-		RUNTIME_DATA_CONTENT; // 560, VR 5C0
-#endif 
+		RUNTIME_DATA_CONTENT;  // 560, VR 5C0
+#endif
 	private:
 		KEEP_FOR_RE()
 	};
